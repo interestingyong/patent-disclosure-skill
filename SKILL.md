@@ -13,7 +13,7 @@ allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
 
 | 能力 | 做什么 | 何时进入 | 入口 |
 |------|--------|----------|------|
-| **交底** | 挖专利点 → 查新 → 成稿 → 迭代 | 专利挖掘、交底书、查新、实用新型、外观设计；`/patent-disclosure`、`/交底书` | `skills/patent-disclosure/SKILL.md` |
+| **交底** | 挖专利点 → 查新 → 成稿 → 迭代 | 专利挖掘、交底书、查新、实用新型、外观设计；`/patent-disclosure`、`/交底书`；进入前须确认产出形态（交底稿/直接申请文件） | `skills/patent-disclosure/SKILL.md` |
 | **申请文件** | 已有交底 → 权要 / 说明书 / 摘要 / 附图 | **须显式**且**指定交底目录**：申请文件、申请底稿、申报材料、`/申请底稿`、`/patent-apply`。仅缺材料则终止；内容争议写入问题清单；交付末尾须摘要清单；改已有产出则另存 | `skills/patent-application/SKILL.md` |
 | **案卷** | 按发明人/工程师给的材料一趟写出交底书和申请文件；清单缺口最多来回三轮，缺事实问人、不编 | **须显式**：交底申请一起做、从零出交底和申请、一条龙、帮写交底再出申请、按清单改、会稿、案卷、`/patent-docket`。只写交底或已有交底只出四件套 → 不要进本案。状态 `outputs/docket/` | `skills/patent-docket/SKILL.md` |
 | **检索** | 公布站高级查询（发明人/申请人/分类号/名称/摘要等）；单图或权要可先抽关键字再查 | 按著录字段查公布公告、个人公开清单、以图/权要生成检索式；`/patent-search`。普通多条件**不要**默认翻完全部分页 | `skills/patent-search/SKILL.md` |
@@ -23,6 +23,7 @@ allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
 
 ## 路由
 
+- **产出形态确认**：进入交底流程前必须先用 ask 类交互向用户确认本次产出形态——(a) 交底稿（给内部评审，默认）；(b) 跳过评审直接出给代理人的申请文件。用户未明确时按交底稿处理并在开工提示中说明。形态为申请文件时仍走 patent-application 的门禁规则。
 - 填表、线稿、CAD、公式、Word 出图在交底包 `prompts/` 与 `tools/`；解读填表用解读包 `prompts/fill_*`；过 WAF 的 `browser.py`、Markdown 转 Word 的 `md_to_docx.py` **各包自带副本**。
 - **禁止跨包调用**其他子技能的 `tools/`。需要同一能力就用本包副本。
 - 专利号或 PDF 且意图为「读懂」→ **优先解读**，不跑交底 Step 1–8。
@@ -62,4 +63,5 @@ skills/patent-exam-policy/        # 政策简报（技能进化为旁路）
 □ 案卷未写交底/申请正文；派工只 Read 对方 SKILL.md
 □ 未跨包调用其他子技能的 tools/
 □ 未把政策简报当成改技能；无点名未改交底包以外的目录
+□ 已向用户确认产出形态（交底稿默认），交底稿未写入权项/FTO/上位分析
 ```
