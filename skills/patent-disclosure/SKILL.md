@@ -17,7 +17,7 @@ user-invocable: false
 | Step 5 | `prompts/prior_art_search.md`（轻量查新，一词一页） |
 | Step 6 | `prompts/disclosure_preview.md` |
 | Step 7 | 对应类型 `disclosure_builder.md` + `template_reference.md` |
-| Step 8 | `prompts/disclosure_self_check.md` |
+| Step 8 | `prompts/disclosure_self_check.md`；终审/批注落实前再过 `references/review_checklist.md`（代理人视角八查） |
 | 迭代 | `iteration_context.md` / `merger.md` / `correction_handler.md` |
 
 查新工具：`tools/crawl/cnipa_epub_search.py`。整仓安装时路径为 `skills/patent-disclosure/tools/crawl/cnipa_epub_search.py`。著录检索不在本包，**禁止**当查新引擎调用。  
